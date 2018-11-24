@@ -3,9 +3,15 @@
 
 function json_api_import_clutch_episode_wp_post($this_obj, $wp_post) {
 
+    if ($wp_post->post_type === "clutch_episode" || $wp_post->post_type === "clutch_story")
+    {
+        $this_obj->set_value('title', $wp_post->post_title);
+        $this_obj->set_value('title_plain', strip_tags(@$wp_post->post_title));
+        $this_obj->set_value('post_content', strip_tags($wp_post->post_content));
+    }
+
     if ($wp_post->post_type === "clutch_episode")
     {
-        $this_obj->set_value('post_content', strip_tags($wp_post->post_content));
         $this_obj->set_value('post_excerpt', strip_tags($wp_post->post_excerpt));
 
         $parser = new post_parser($wp_post->post_content);
