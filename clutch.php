@@ -9,7 +9,7 @@ ini_set( 'upload_max_size' , '64M' );
 ini_set( 'post_max_size', '64M');
 
 define('UPSELL_TITLE', 'upsell_trigger');
-define('UPSELL_VALUE', '[upsell_trigger]');
+define('UPSELL_VALUE', '***upsell_trigger***');
 
 $dir = dirname(__FILE__);
 
