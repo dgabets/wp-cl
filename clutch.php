@@ -8,7 +8,7 @@ Author: wp-clutch
 ini_set( 'upload_max_size' , '64M' );
 ini_set( 'post_max_size', '64M');
 
-define('UPSELL_TITLE', 'UPSELL');
+define('UPSELL_TITLE', 'upsell_trigger');
 define('UPSELL_VALUE', '***upsell***');
 
 $dir = dirname(__FILE__);
