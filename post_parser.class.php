@@ -176,16 +176,20 @@ Class post_parser
 
             $message = strip_shortcodes($message);
 
-            $dom = new DOMDocument;
-            $dom->loadHTML($message);
-            $images = $dom->getElementsByTagName('img');
-            foreach ($images as $image) {
-                $added++;
-                $result[] = array(
-                    'author' => $author,
-                    'type' => 'image',
-                    'src' => $image->getAttribute('src'),
-                );
+            if (!empty($message))
+            {
+                $dom = new DOMDocument;
+                $dom->loadHTML($message);
+                $images = $dom->getElementsByTagName('img');
+                foreach ($images as $image) {
+                    $added++;
+                    $result[] = array(
+                        'author' => $author,
+                        'type' => 'image',
+                        'src' => $image->getAttribute('src'),
+                        'alt' => $image->getAttribute('alt'),
+                    );
+                }
             }
 
 //            $videos = $dom->getElementsByTagName('video');

@@ -90,6 +90,7 @@ if ( ! function_exists( 'mytheme_add_buttons' ) ) {
     function mytheme_add_buttons( $plugin_array ) {
         $plugin_array['clutch_video_button'] =  plugin_dir_url(__FILE__) . 'clutch-tinymce-video-button.js';
         $plugin_array['clutch_upsell_button'] =  plugin_dir_url(__FILE__) . 'clutch-tinymce-upsell-buttons.js';
+        $plugin_array['clutch_img_upsell_button'] =  plugin_dir_url(__FILE__) . 'clutch-tinymce-img-upsell-buttons.js';
         return $plugin_array;
     }
 }
@@ -98,6 +99,7 @@ if ( ! function_exists( 'mytheme_register_buttons' ) ) {
     function mytheme_register_buttons( $buttons ) {
         array_push( $buttons, 'clutch_video_button' );
         array_push( $buttons, 'clutch_upsell_button' );
+        array_push( $buttons, 'clutch_img_upsell_button' );
         return $buttons;
     }
 }
@@ -114,6 +116,7 @@ if ( !function_exists( 'mytheme_tinymce_extra_vars' ) ) {
                       'image_title' => esc_html__('Image', 'mythemeslug'),
                       'image_button_title' => esc_html__('Upload image', 'mythemeslug'),
                       'UPSELL_VALUE' => UPSELL_VALUE,
+                      'UPSELL_TITLE' => UPSELL_TITLE,
                   )
               );
               ?>;
