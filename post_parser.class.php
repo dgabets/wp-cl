@@ -86,7 +86,7 @@ Class post_parser
     {
         $clean_text = trim(strip_tags($row));
 
-        preg_match_all('~\[\w+\]~', $clean_text, $m);
+        preg_match_all('~\[[\w\s]+\]~', $clean_text, $m);
 
         if (count($m) > 1)
         {
@@ -94,7 +94,7 @@ Class post_parser
             //save notice
         }
 
-        preg_match('~^\[\w+\]~', $clean_text, $m);
+        preg_match('~^\[[\w\s]+\]~', $clean_text, $m);
         if (count($m) === 1)
             return $m[0];
 
