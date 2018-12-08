@@ -95,7 +95,8 @@ Class post_parser
         }
 
         preg_match('~^\[[\w\s]+\]~', $clean_text, $m);
-        if (count($m) === 1)
+
+        if (count($m) === 1 && $m[0] !== UPSELL_VALUE)
             return $m[0];
 
         $this->warnings[] = "Author not found in message \"$row\"";
