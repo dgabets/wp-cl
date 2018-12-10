@@ -46,29 +46,11 @@ Class post_parser
             if (empty($row))
                 continue;
 
-            if (strpos($row, UPSELL_VALUE) !== false)
+            if ($row === UPSELL_VALUE)
             {
-                $up_rows = explode(UPSELL_VALUE, $row);
-                $upsell_added = false;
-                foreach ($up_rows as $u_row)
-                {
-                    $u_row = trim($u_row);
-
-                    if (!empty($u_row))
-                    {
-                        $raw_messages[] = array(
-                            'author' => $current_author,
-                            'message' => $row
-                        );
-                    }
-                    if (!$upsell_added)
-                    {
-                        $raw_messages[] = array(
-                            UPSELL_TITLE => true
-                        );
-                        $upsell_added = true;
-                    }
-                }
+                $raw_messages[] = array(
+                    UPSELL_TITLE => true
+                );
             }
             else
             {
