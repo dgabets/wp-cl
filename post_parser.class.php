@@ -86,7 +86,9 @@ Class post_parser
     {
         $clean_text = trim(strip_tags($row));
 
-        preg_match_all('~\[[\w\s]+\]~', $clean_text, $m);
+        $author_preg = '~\[.+\]~';
+
+        preg_match_all($author_preg, $clean_text, $m);
 
         if (count($m) > 1)
         {
@@ -94,7 +96,7 @@ Class post_parser
             //save notice
         }
 
-        preg_match('~^\[[\w\s]+\]~', $clean_text, $m);
+        preg_match($author_preg, $clean_text, $m);
 
         if (count($m) === 1 && $m[0] !== UPSELL_VALUE)
             return $m[0];
