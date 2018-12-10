@@ -86,7 +86,7 @@ Class post_parser
     {
         $clean_text = trim(strip_tags($row));
 
-        $author_preg = '~\[.+\]~';
+        $author_preg = '~\[[@\w\s]+\]~';
 
         preg_match_all($author_preg, $clean_text, $m);
 
